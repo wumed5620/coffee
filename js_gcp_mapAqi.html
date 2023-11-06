@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Simple Map</title>
+        <style>
+            #map {
+                height: 600px;
+                width: 800px;
+            }
+        </style>
+        <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+        <script>
+            function Location(county, sitename, latitude, longitude) {
+                this.county = county;
+                this.sitename = sitename;
+                this.lat = latitude;
+                this.lng = longitude;
+
+                this.title = county + sitename;
+                this.center = {
+                    lat: parseFloat(latitude),
+                    lng: parseFloat(longitude),
+                };
+            }
+
+            window.onload = function () {
+                fetch("./places.json")
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (jsonObj) {
+                        let records = [];
+                        jsonObj["places"].forEach(function (rd) {
+                            records.push(
+                                new Location(
+                                    rd.county,
+                                    rd.sitename,
+                                    rd.latitude,
+                                    rd.longitude
+                                )
+                            );
+                        });
+                        pinMarkersCluster(records);
+                    });
+            };
+
+            function pinMarker(records) {
+                records.forEach(function (rd) {
+                    new google.maps.Marker({
+                        position: rd.center,
+                        map: map,
+                    });
+                });
+            }
+
+            function pinMarkersCluster(records) {
+                // 地圖標記叢集
+                let markers = [];
+                records.forEach(function (rd) {
+                    markers.push(
+                        new google.maps.Marker({
+                            position: rd.center,
+                            map: map,
+                        })
+                    );
+                });
+                new markerClusterer.MarkerClusterer({ markers, map });
+            }
+
+            let map;
+
+            function initMap() {
+                let center = { lat: 23.9742, lng: 120.9798 };
+                map = new google.maps.Map(document.getElementById("map"), {
+                    center: center,
+                    zoom: 7,
+                });
+            }
+
+            window.initMap = initMap;
+        </script>
+    </head>
+
+    <body>
+        <div id="map"></div>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAQtT4o9hDNH5KzBs7TogIOMoHlzGDVdo&callback=initMap&v=weekly"
+            defer
+        ></script>
+    </body>
+</html>

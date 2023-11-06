@@ -1,0 +1,53 @@
+{
+    "places": [
+        {
+            "county": "台中市",
+            "sitename": "偷時咖啡館",
+            "cellphone": "0987654321",
+            "longitude": "120.701803",
+            "latitude": "24.159346"
+        },
+        {
+            "county": "花蓮市",
+            "sitename": "Eye Cafe",
+            "cellphone": "0987654321",
+            "longitude": "121.607124",
+            "latitude": "23.976105"
+        },
+        {
+            "county": "台中市",
+            "sitename": "鄉林狗園",
+            "cellphone": "0987654321",
+            "longitude": "120.656970",
+            "latitude": "24.152559"
+        },
+        {
+            "county": "台中市",
+            "sitename": "豐海刺青",
+            "cellphone": "0987654321",
+            "longitude": "120.672033",
+            "latitude": "24.168685"
+        },
+        {
+            "county": "台北市",
+            "sitename": "茗心坊台灣高山烏龍茶",
+            "cellphone": "0987654321",
+            "longitude": "121.544299",
+            "latitude": "25.033611"
+        },
+        {
+            "county": "花蓮市",
+            "sitename": "雲水小築市區民宿",
+            "cellphone": "0987654321",
+            "longitude": "121.604927",
+            "latitude": "23.979463"
+        },
+        {
+            "county": "台南市",
+            "sitename": "Longwin Custom Supplies Ltd.",
+            "cellphone": "0987654321",
+            "longitude": "120.255547",
+            "latitude": "23.015331"
+        }
+    ]
+}
